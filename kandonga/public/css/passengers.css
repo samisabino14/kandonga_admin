@@ -1,0 +1,29 @@
+* {
+
+    text-decoration: none;
+}
+
+.accordion-body ul li {
+    
+    display: inline-block;
+    padding: 20px;
+    min-width: 300px;
+    background: rgb(243, 235, 235);
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+.accordion-body ul span {
+
+    margin: 5px;
+    color: rgb(0, 0, 0);
+    
+}
+.accordion-body ul img {
+
+    width: 80px;
+    border-radius: 50px;
+    margin: 5px;
+    
+}

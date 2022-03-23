@@ -1,0 +1,42 @@
+
+{{#if rider}}
+
+
+    <div class="p-5" style="display: flex; justify-content: space-between; align-items: center; border-radius: 20px;">
+
+        <div class="datas">
+
+            <h2>Perfil de {{rider.name}}</h2> </h2>
+            <hr>
+            <p>Email: <strong>{{rider.email}}</strong></p>
+            <p>Telemóvel: <strong>{{rider.phone}}</strong></p>
+
+        </div>
+
+        <img src="/img/rider1.jpg" class="card-img-top" alt="Passageiro da Kandonga" style="width: 10rem; border-radius: 10px;">
+
+    </div>
+
+    {{!-- <a href="{{rider.email}}" class=""><button class="btn btn-danger" id="removeBtn">Remover</button></a> --}}
+
+{{!-- 
+    <div class="text-center my-5">
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d504427.8266494463!2d13.03334540316355!3d-8.98664633563192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f24ecaad8b27%3A0x7f137f563288bd87!2sLuanda%20Province!5e0!3m2!1sen!2sao!4v1644190136176!5m2!1sen!2sao" width="950" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+    </div>
+ --}}
+    <div class="historicRaces my-5 p-3">
+
+        <h4>Histórico financeiro:</h4>
+        <hr>
+
+    </div>
+
+    <div class="historicRaces my-5 p-3">
+
+        <h4>Histórico de corridas:</h4>
+        <hr>
+
+    </div>
+{{/if}}

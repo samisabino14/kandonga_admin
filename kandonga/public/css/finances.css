@@ -1,0 +1,54 @@
+
+* {
+
+    text-decoration: none;
+}
+
+.accordion .accordion-button {
+
+    background-color: rgb(0, 77, 107);
+    color: white;
+    font-weight: 800;
+    padding: 25px;
+    border-radius: 5px;
+}
+
+.finances {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-body {
+
+    background: rgb(96, 68, 255);
+    color: white;
+}
+
+.accordion-body .total {
+
+    text-align: center;
+    padding: 30px;
+}
+
+.accordion-body .profits {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.accordion-body .profits .configProfits {
+
+    padding: 50px;
+    border-radius: 10px;
+    min-width: 465px;
+    background: rgb(95, 0, 158);
+
+}

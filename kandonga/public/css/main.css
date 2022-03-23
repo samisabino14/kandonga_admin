@@ -1,0 +1,28 @@
+* {
+
+    text-decoration: none !important;
+}
+
+
+/* 
+
+main {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+ */
+
+form {
+
+    width: 400px;
+    border: solid 1px #ebebeb;
+    padding: 5rem;
+}
+
+button {
+
+    margin-top: 2rem;
+}

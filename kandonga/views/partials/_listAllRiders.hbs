@@ -1,0 +1,29 @@
+
+        <div class="mt-5" style="display: block; justify-content: space-between; align-items: center;">
+            
+            {{#if riders}}
+
+                {{#each riders}}
+
+                    <div class="card" style="width: 16rem; margin: 20px; background-color: rgb(0, 37, 158); color: white; border-radius: 10px; border: none;">
+                        {{!-- <img src="/img/rider.jpg" class="card-img-top" alt="Passageiro da Kandonga" style="width: 16rem; border-radius: 10px;"> --}}
+                        <div class="card-body p-4">
+                            <h3 class="card-title">{{name}}</h3>
+                            <p>{{email}}</p>
+                            <hr>
+                            <div class="text-center p-3">
+                                <a href="riders/{{email}}" id="getByEmail" class="btn btn-light" style="cursor: pointer; min-width: 150px;">Ver Perfil</a>
+                            </div>
+
+                        </div>
+                    </div>
+                
+
+                {{else}}
+
+
+                {{/each}}
+
+            {{/if}}
+        </div>
+

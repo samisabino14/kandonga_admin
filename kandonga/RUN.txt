@@ -1,0 +1,1 @@
+export GOOGLE_APPLICATION_CREDENTIALS=/home/sams14/Desktop/kandonga/kandonga77-bbfd7-firebase-adminsdk-uvgg9-386182b2d1.json

@@ -1,0 +1,44 @@
+
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-12">
+            
+            {{#if rider}}   
+        
+                <div class="editUser p-5">
+
+                    <form action="{{updateURL}}/{{rider.person.email}}" method="POST" >
+
+                        <div class="mb-3 row">
+                            <label for="email" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control-plaintext" name="email" id="email" value="{{rider.person.email}}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="firstName" class="col-sm-2 col-form-label">Nome: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="firstName" id="firstName" value="{{rider.person.firstName}}">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="lastName" class="col-sm-2 col-form-label">Sobrenome: </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="lastName" id="lastName" value="{{rider.person.lastName}}">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <a href="{{homeRiders}}"><button type="button" class="btn btn-danger">Cancelar</button></a>
+
+                    </form>
+                </div>
+            
+            {{/if}}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,24 @@
+
+        <div class="mt-5" style="display: block; justify-content: space-between; align-items: center;">
+            
+            {{#if availableDrivers}}
+
+                {{#each availableDrivers}}
+
+                    {{l}}
+                    
+                    <iframe
+                        width="950"
+                        height="500"
+                        frameborder="0" style="border:0"
+                        src="https://www.google.com/maps/embed/v1/view?key=AIzaSyDC56nvblQicHcZop52iEu5fszShoSKbpk&center={{l}}&zoom=14" allowfullscreen>
+                    </iframe>
+                
+                {{else}}
+
+
+                {{/each}}
+
+            {{/if}}
+        </div>
+
