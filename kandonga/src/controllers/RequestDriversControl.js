@@ -1,11 +1,10 @@
 import fetch from "node-fetch";
-import { driverRef } from '../../app.js'
+import { driverRef, rideRequest } from '../../app.js'
 
 let status = 0;
 
 
 export const getDrivers = (req, res) => {    
-
 
     driverRef.orderByChild('name').on('value', snapshot => {
         
@@ -27,8 +26,13 @@ export const getDrivers = (req, res) => {
 export const getDriverByEmail = (req, res) => {
     
     const { email } = req.params;
-    var driver = {}
-        
+    var driver = {};
+    var driverId = null;
+    var fareAmount = 0;
+    var amountDriver = 0;
+    var amountEnterprise = 0;
+    var historic = [];
+    
     driverRef.orderByChild('name').on('value', snapshot => {
 
         snapshot.forEach(function(childSnapshot) {
@@ -36,14 +40,37 @@ export const getDriverByEmail = (req, res) => {
             var item = childSnapshot.val();
             item.key = childSnapshot.key;
 
-            if(item.email == email) {
+            if ( item.email == email ) {
 
                 driver = item;
+                driverId = driver.id;
+
+                rideRequest.orderByChild('fareAmount').on('value', snapshot => {
+
+                    snapshot.forEach(function(childSnapshot) {
+            
+                        var item = childSnapshot.val();
+                        item.key = childSnapshot.key;
+                        
+                        if ( item.driverId == driverId ) {
+
+                            fareAmount += Number(item.fareAmount);
+
+                            historic.push(item);
+                        }
+                    });
+                })
             }            
         });
     })
+    
+    res.status(200).render('listDriverByEmail', {
 
-    console.log(driver);
+        driver: driver,
+        fareAmount: (fareAmount).toFixed(2),
+        amountDriver: (fareAmount * 0.9).toFixed(2),
+        amountEnterprise: (fareAmount * 0.1).toFixed(2),
+        historic: historic,
 
-    res.status(200).render('listDriverByEmail', {driver: driver});
+    });
 }

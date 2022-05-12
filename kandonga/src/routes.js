@@ -24,8 +24,6 @@ router.get('/', homeRouter);
 
 router.get('/races', (req, res) => {
 
-
-
     availableDriversRef.orderByChild('name').on('value', snapshot => {
         
         var availableDrivers = []
@@ -35,7 +33,7 @@ router.get('/races', (req, res) => {
             var item = childSnapshot.val();
             item.key = childSnapshot.key;
 
-            availableDrivers.push(item);          
+            availableDrivers.push(item);      
         });
 
         res.status(200).render('races', {availableDrivers: availableDrivers});

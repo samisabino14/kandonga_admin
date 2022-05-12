@@ -1,16 +1,16 @@
-
-const GOOGLE_APPLICATION_CREDENTIALS='/home/sams14/Desktop/kandonga/kandonga77-bbfd7-firebase-adminsdk-uvgg9-386182b2d1.json'
+/* const GOOGLE_APPLICATION_CREDENTIALS='/home/sams14/Desktop/kandonga_admin/kandonga/kandonga77-bbfd7-firebase-adminsdk-uvgg9-386182b2d1.json'
 
 export {
 
     GOOGLE_APPLICATION_CREDENTIALS
-} 
+}   */
 
 
 /* _______________________________________________________________________________________
 
     IMPORTS
 __________________________________________________________________________________________ */
+
 
 import express from "express";
 import csrf from 'csurf'
@@ -19,9 +19,10 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import { engine } from "express-handlebars";
 import createError from "http-errors";
-import { initializeApp } from 'firebase-admin/app';
+// import { initializeApp } from 'firebase-admin/app';
 import router from './src/routes.js';
 import admin from 'firebase-admin'
+
 
 
 
@@ -63,11 +64,6 @@ app.use(cookieParser());
 app.use(csrfMiddleware);
 
 
-app.all('*', (req, res, next) => {
-
-    res.cookie("XSRF-TOKEN", req.csrfToken());
-    next();
-})
 
 
 
@@ -77,6 +73,7 @@ app.all('*', (req, res, next) => {
 __________________________________________________________________________________________ */
 
 
+
 admin.initializeApp({
   credential: admin.credential.applicationDefault(),
   databaseURL: "https://kandonga77-bbfd7-default-rtdb.firebaseio.com"
@@ -84,24 +81,26 @@ admin.initializeApp({
 
 
 const db = admin.database();
+
 const userRef = db.ref('/users')
 const driverRef = db.ref('/drivers')
 const availableDriversRef = db.ref('/availableDrivers')
 const rideRequest = db.ref('/rideRequest')
- 
+
 /* _______________________________________________________________________________________
 
     ROUTES
 __________________________________________________________________________________________ */
-
+/* 
 app.get('/', (req, res) => {
 
     res.status(200).sendFile(path.resolve() + '/views/home.html');
-});
+}); */
 
-app.get('/signin_admin', (req, res) => {
+app.get('/', (req, res) => {
 
     res.status(200).sendFile(path.resolve() + '/views/auth-login.html');
+
 });
 
 app.post('/signin_admin', (req, res) => {
@@ -112,11 +111,12 @@ app.post('/signin_admin', (req, res) => {
 
 app.use('/kandonga', router);
 
+/*  
 app.post('/kandonga', (req, res) => {
 
     console.log(req.body.email)
 
-/*     const userID = userRef.push().key;
+   const userID = userRef.push().key;
 
     userRef.child(userID).set({
 
@@ -129,11 +129,11 @@ app.post('/kandonga', (req, res) => {
     userRef.on("child_added", snapshot => {
         console.log('Novo utilizador adicionado à Base de Dados!');
     })
- */
+
     res.redirect('/kandonga/riders');
     
 });
-
+*/
 
 export {
     userRef,

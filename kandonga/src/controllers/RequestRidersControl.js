@@ -1,4 +1,4 @@
-import { userRef } from '../../app.js'
+import { userRef, rideRequest } from '../../app.js'
 
 let status = 0;
 let riders = {}
@@ -40,8 +40,12 @@ export const getRiders = (req, res) => {
 export const getRiderByEmail = (req, res) => {
     
     const { email } = req.params;
+
     var rider = {}
-        
+    var riderId = null;   
+    var fareAmount = 0;
+    var historic = [];
+
     userRef.orderByChild('name').on('value', snapshot => {
 
         snapshot.forEach(function(childSnapshot) {
@@ -52,11 +56,35 @@ export const getRiderByEmail = (req, res) => {
             if(item.email == email) {
 
                 rider = item;
+                riderId = rider.id;
+                console.log(riderId);
+
+                rideRequest.orderByChild('fareAmount').on('value', snapshot => {
+
+                    snapshot.forEach(function(childSnapshot) {
+            
+                        var item = childSnapshot.val();
+                        item.key = childSnapshot.key;
+                        
+                        if(item.riderId == riderId) {
+
+                            fareAmount += Number(item.fareAmount);
+
+                            historic.push(item);
+
+                            console.log(fareAmount);
+                        }
+                    });
+                })
             }            
         });
     })
 
-    res.status(200).render('listRiderByEmail', {rider: rider});
+    res.status(200).render('listRiderByEmail', {
+        
+        rider: rider,
+    
+    });
 
 }
 
@@ -96,11 +124,6 @@ export const updateRider = (req, res) => {
         name: req.body.name,
         phone: req.body.phone
     }
-
-    console.log(req.body.id)
-    console.log(req.body.name)
-    console.log(req.body.email)
-    console.log(req.body.phone)
 
     console.log(newDate);
     

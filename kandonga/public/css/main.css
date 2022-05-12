@@ -26,3 +26,42 @@ button {
 
     margin-top: 2rem;
 }
+
+.btn-kandonga {
+
+    background-color: #1d5e91;
+    color: #fff;
+    transition: all 1s ease-in-out;
+}
+
+.btn-kandonga:hover {
+
+    background-color: #fff;
+    color: #1d5e91;
+}
+
+
+.amounts {
+
+    background-color: rgb(221, 221, 238);
+    color: #1d5e91;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.amounts .amountDriver {
+
+    background-color: rgb(253, 253, 255);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.amounts .amountEnterprise {
+
+    background-color: rgb(253, 253, 255);
+    padding: 20px;
+    border-radius: 10px;
+}

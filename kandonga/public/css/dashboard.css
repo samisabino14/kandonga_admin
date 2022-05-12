@@ -80,7 +80,7 @@ body {
   padding-bottom: .75rem;
   font-size: 1rem;
   font-weight: 800;
-  background-color: rgb(2, 0, 141);
+  background-color: #1d5e91;
   box-shadow: inset -1px 0 0 rgb(0, 0, 0);
 }
 
@@ -103,5 +103,5 @@ body {
 }
 
 .form-control-dark:focus {
-  box-shadow: 0 0 0 1px rgb(2, 0, 141);
+  box-shadow: 0 0 0 1px #1d5e91;
 }
